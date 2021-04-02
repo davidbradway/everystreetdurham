@@ -2,6 +2,8 @@
 
 This repository is to download and visualize GPS traces from Garmin Connect.
 
+See the map: https://davidbradway.github.io/everystreetdurham
+
 ## Usage
 
 For Windows Anaconda Prompt. Similar for other platforms.
