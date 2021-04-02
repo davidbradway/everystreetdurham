@@ -25,4 +25,4 @@ for filename in gpx_files:
 	except:
 		pass
 
-my_map.save_to_html('docs\index.html')
+my_map.save_to_html(r'docs\index.html')
