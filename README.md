@@ -1,6 +1,10 @@
-Every Street Durham
+# Every Street Durham
 
-#Anaconda Prompt
+This repository is to download and visualize GPS traces from Garmin Connect.
+
+## Usage
+
+For Windows Anaconda Prompt. Similar for other platforms.
 ```
 python -m venv venv
 venv\Scripts\activate
