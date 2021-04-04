@@ -16,6 +16,7 @@ cd data
 garmin-backup --backup-dir=garminactivities USERNAME --password PASSWORD -f gpx
 cd ..
 python process.py
+python gpx_reduce_all.py
 python src\everysinglestreet.py
 deactivate
 ```

@@ -1,3 +1,6 @@
 [submodule "everysinglestreet"]
 	path = everysinglestreet
 	url = https://github.com/andhint/everysinglestreet
+[submodule "gpx_reduce"]
+	path = gpx_reduce
+	url = git@github.com:Alezy80/gpx_reduce.git

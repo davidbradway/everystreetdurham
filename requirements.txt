@@ -11,3 +11,7 @@ requests
 six
 urllib3
 garminexport
+scipy
+lxml
+matplotlib==3.2
+iso8601
