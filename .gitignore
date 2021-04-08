@@ -133,3 +133,4 @@ SECRETS
 
 # Data files
 *.gpx
+*.pkl
