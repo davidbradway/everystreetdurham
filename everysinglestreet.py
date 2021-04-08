@@ -1,14 +1,14 @@
-import os
 import glob
-
-from everysinglestreet import Ride, Map
+import sys
+sys.path.append('everysinglestreet')
+from src.everysinglestreet import Ride, Map
 
 '''
  Call this script from the directory above `data`
- python src\everysinglestreet.py
+ python everysinglestreet.py
 '''
 
-my_map = Map()
+my_map = Map(lat=35.99, lon=-78.90, zoom=12, tiles='Stamen Toner')
 
 # read in municipal boundary
 durham = 'data/geo/durham_boundary.json'

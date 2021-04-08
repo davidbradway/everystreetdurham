@@ -1,3 +1,4 @@
+import logging
 import os
 from shutil import copy
 import gpxpy
@@ -9,13 +10,14 @@ import pickle
  It keeps the originals to maintain easy incremental backups
 '''
 
-def close_to_city(point, city_latitude=35.994034, city_longitude=-78.898621, thresh = 0.2):
+
+def close_to_city(point, city_latitude=35.994034, city_longitude=-78.898621, thresh=0.2):
     # https://www.usgs.gov/faqs/how-much-distance-does-a-degree-minute-and-second-cover-your-maps?qt-news_science_products=0#qt-news_science_products
     # about 10 miles in any direction
     return abs(point.latitude - city_latitude) < thresh and abs(point.longitude - city_longitude) < thresh
 
 
-def main(directory = 'garminactivities', keepdirectory = 'citystrides'):
+def main(directory='garminactivities', keepdirectory='citystrides'):
     files = os.listdir(os.path.join('data', directory))
 
     # use local pickle cache file to avoid rechecking
@@ -26,6 +28,7 @@ def main(directory = 'garminactivities', keepdirectory = 'citystrides'):
     else:
         checked = []
 
+    filename: str
     for filename in files:
         if filename not in checked:
             try:
@@ -42,10 +45,12 @@ def main(directory = 'garminactivities', keepdirectory = 'citystrides'):
 
                         if close_to_city(point):
                             print(f"{filename} \t {track.type} in City. Copy")
-                            copy(os.path.join('data', directory, filename), os.path.join('data', keepdirectory, filename))
-            except Exception as e: # work on python 3.x
+                            copy(os.path.join('data', directory, filename),
+                                 os.path.join('data', keepdirectory, filename))
+            except Exception as e:  # work on python 3.x
                 # print(str(e))
-                pass
+                logging.exception(e)
+
 
     checked = files
     with open('.checked.pkl', 'wb') as f:
