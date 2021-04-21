@@ -1,17 +1,13 @@
+echo To use this BATCH script add GARMINUSER and GARMINKEY to your Windows environment variables
+
 echo Change Directory
 cd C:\Users\dpb6\Downloads\repos\everystreetdurham
 
 echo Activate Python Virtual Environment
 call C:\Users\dpb6\Downloads\repos\everystreetdurham\venv\Scripts\activate.bat
 
-echo Change to data subdir
-cd data
-
 echo Run garmin backup command
-garmin-backup --backup-dir=garminactivities %GARMINUSER% --password %GARMINKEY% -f gpx
-
-echo Leave data subdir
-cd ..
+garmin-backup --backup-dir="data\garminactivities" %GARMINUSER% --password %GARMINKEY% -f gpx
 
 echo Filter: make a copy of runs and walks in Durham
 python process.py
