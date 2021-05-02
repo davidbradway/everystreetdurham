@@ -14,6 +14,7 @@ import datetime
 date = '2019-10-30'
 city_strides_start_date = datetime.datetime.strptime(date, '%Y-%m-%d').date()
 total_dist = 0
+total_runs = 0
 
 my_map = Map(lat=35.99, lon=-78.90, zoom=12, tiles='Stamen Toner')
 
@@ -32,9 +33,11 @@ for filename in gpx_files:
         my_map.add_ride_gps_to_map(my_ride)
         if my_ride.ride_date.date() > city_strides_start_date:
             total_dist += my_ride.ride_length_miles
+            total_runs += 1
     except Exception as e:
         print(e)
 
 my_map.save_to_html(r'docs\index.html')
 
-print(f'{total_dist}')
+print(f'total_dist= {total_dist}')
+print(f'total_runs= {total_runs}')
