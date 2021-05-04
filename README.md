@@ -20,3 +20,6 @@ python gpx_reduce_all.py
 python everysinglestreet.py
 deactivate
 ```
+
+To use the included `update.bat` Windows CMD batch script, add GARMINUSER and GARMINKEY to your Windows User Environment Variables. Then you should just be able to run the script by double-clicking it or from the Command Prompt.
+
